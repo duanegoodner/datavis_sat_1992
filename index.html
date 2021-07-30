@@ -1,0 +1,97 @@
+<html>
+  <script src="https://d3js.org/d3.v6.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+
+
+<style>
+  circle {
+    fill: none;
+    stroke: black;
+  }
+
+  .axis {
+    font-size: 18;
+  }
+
+  body {
+    margin-left: 50;
+    margin-top: 20;
+    font-family: Arial, Helvetica, sans-serif;    
+  }
+
+  #introtext {
+    width: 800px;
+  }
+</style>
+
+<body>
+
+  <h1>Education spending and SAT results from 1992</h1>
+  
+  <div id="introtext">
+    <h3>How is government spending on education related to students' educational ambitions and test performance - and how do these factors vary among different regions of the United States? 
+    </h3>
+    
+    <p>
+      There are many different ways to answer - and many different answers to - this question. Some of those answers are straighforward. Others are more nuanced. The visualization narrative presented here looks at a snapshot of data educational spending and testing data from 1992 - a time far enough into the past that we can view it with some historical perspective, but recent enough that it does not seem too far out of context from today's discussions on education.
+      <br>
+      <br>
+      Drill down into this data set by choosing from different pairs of plot parameters with the "Plot Selector" buttons, changin the data grouping parameter with the "State-Region" toggle switch, and hovering over the data circles to view tooltip information.
+    </p>
+
+  </div>
+  
+
+  <div>
+  <svg id="mainplot" width="800" height="480"></svg>
+</div>
+
+  <p>Plot selector:</p>
+  <div class="buttons" id="view-selectors">
+    <button id="button1">% test-takers vs. spending per student</button>
+    <button id="button2">Averge SAT score vs. spending per student</button>
+    <button id="button3">Average SAT vs. % test-takers</button>
+  </div>
+
+  <div>
+    <br>
+  </div>
+ 
+  <p>Data grouping selector:</p>
+  <div>
+    <span>By State</span>   
+      <input
+        type="range"
+        id="regionState"
+        name="regionState"
+        min="0"
+        max="1"
+        value="0"
+        step="1"
+      />
+    By Region
+  <div>
+  <br>
+  <br>
+  <p>
+    Sources:
+    <br>
+    <ul>
+      <li>The "States" dataset from the <em>R</em> package "carData"</li>
+      <li> <a href="https://www.census.gov/prod/1/gen/95statab/educ.pdf"></a>https://www.census.gov/prod/1/gen/95statab/educ.pdf</li>
+    </ul>
+  </p>  
+</body>
+<script src="./scripts/plotSettings.js"></script>
+<script defer type="module">
+  const moduleSpecifier = "./scripts/app.js";
+  import(moduleSpecifier).then((module) => {
+    module.runApp();
+  });
+</script>
+
+</html>
+
+
+<!-- <script src="scripts/app.js"></script> -->
